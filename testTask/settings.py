@@ -12,6 +12,8 @@ DEBUG = bool(os.getenv('DEBUG', default=1))
 
 ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '127.0.0.1').split(' ')
 
+AUTH_USER_MODEL = "users.User"
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
