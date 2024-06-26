@@ -3,11 +3,10 @@ from django.db import models
 from users.models import User
 
 
-class Client(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+class Client(User):
 
     def __str__(self):
-        return self.user.email
+        return self.email
 
     class Meta:
         verbose_name = "Заказчик"
