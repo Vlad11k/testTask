@@ -12,14 +12,8 @@ class ClientViewSet(
     mixins.RetrieveModelMixin,
     GenericViewSet,
 ):
-    """
 
-    """
-
-    # queryset = Client.objects.all()
+    queryset = Client.objects.all()
     serializer_class = ClientSerializer
-
-    def get_queryset(self):
-        return Client.objects.filter(is_staff=False)
 
 
