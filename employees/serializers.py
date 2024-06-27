@@ -4,13 +4,15 @@ from .models import Employee
 
 
 class EmployeeSerializer(serializers.ModelSerializer):
-    full_name = serializers.CharField(required=True)
-    email = serializers.EmailField(required=True)
-    phone = serializers.CharField(required=True)
 
     class Meta:
         model = Employee
         fields = ("id", 'full_name', 'email', 'phone', 'password',)
+        extra_kwargs = {'password': {'write_only': True},
+                        'full_name': {'required': True},
+                        'email': {'required': True},
+                        'phone': {'required': True},
+                        }
 
     def create(self, validated_data):
         user = Employee(
