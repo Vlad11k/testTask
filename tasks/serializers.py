@@ -2,7 +2,6 @@ from datetime import datetime
 
 from rest_framework import serializers
 
-from clients.models import Client
 from tasks.models import Task
 
 
