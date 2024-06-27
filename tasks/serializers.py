@@ -11,6 +11,22 @@ class TaskListSerializer(serializers.ModelSerializer):
         fields = ("id", "client", "employee", "date_create", "date_update", "date_end", "status", "report")
         read_only_fields = ['employee', 'status', 'date_end', 'report']
 
+    def create(self, validated_data):
+        user = self.context['request'].user
+        if hasattr(user, 'employee'):
+            task = Task(
+                client=validated_data['client'],
+                employee=user.employee,
+                status=Task.PROCESS
+            )
+            task.save()
+        else:
+            task = Task(
+                client=validated_data['client']
+            )
+            task.save()
+        return task
+
 
 class TaskAcceptSerializer(serializers.ModelSerializer):
     class Meta:
