@@ -4,10 +4,9 @@ from .models import Employee
 
 
 class EmployeeSerializer(serializers.ModelSerializer):
-    # photo = serializers.ImageField(allow_empty_file=False,
-    #                                use_url=True,
-    #                                required=True,
-    #                                label='Фото')
+    full_name = serializers.CharField(required=True)
+    email = serializers.EmailField(required=True)
+    phone = serializers.CharField(required=True)
 
     class Meta:
         model = Employee
