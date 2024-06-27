@@ -42,16 +42,16 @@ class User(AbstractBaseUser):
         blank=True
     )
     phone = models.CharField(
-        verbose_name='Телефон',
+        verbose_name='Phone',
         max_length=100,
         unique=True,
         blank=True)
     full_name = models.CharField(
-        verbose_name='ФИО',
+        verbose_name='Full_name',
         max_length=150,
         blank=True)
     is_active = models.BooleanField(default=True)
-    is_staff = models.BooleanField(default=False, verbose_name='Администратор')
+    is_staff = models.BooleanField(default=False, verbose_name='Admin')
 
     objects = MyUserManager()
     USERNAME_FIELD = "email"
