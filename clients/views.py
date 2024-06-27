@@ -8,13 +8,13 @@ from clients.serializers import ClientSerializer
 class ClientAPIList(generics.ListCreateAPIView):
     queryset = Client.objects.all()
     serializer_class = ClientSerializer
-    permission_classes = (IsEmployee, )
+    permission_classes = (IsEmployee,)
 
 
 class ClientAPIRetrieve(generics.RetrieveAPIView):
     queryset = Client.objects.all()
     serializer_class = ClientSerializer
-    permission_classes = (IsEmployee, )
+    permission_classes = (IsEmployee,)
 
 
 class ClientAPIProfile(generics.ListAPIView):

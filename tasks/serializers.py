@@ -6,7 +6,6 @@ from tasks.models import Task
 
 
 class TaskListSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Task
         fields = ("id", "client", "employee", "date_create", "date_update", "date_end", "status", "report")
@@ -14,7 +13,6 @@ class TaskListSerializer(serializers.ModelSerializer):
 
 
 class TaskAcceptSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Task
         fields = ("id", "client", "employee", "date_create", "date_update", "date_end", "status", "report")
@@ -29,7 +27,6 @@ class TaskAcceptSerializer(serializers.ModelSerializer):
 
 
 class TaskEndSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Task
         fields = ("id", "client", "employee", "date_create", "date_update", "date_end", "status", "report")

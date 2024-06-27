@@ -1,21 +1,21 @@
 from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
 
 from employees.models import Employee
 from employees.permissions import IsEmployee, IsOwner
 from employees.serializers import EmployeeSerializer
-from rest_framework.permissions import IsAuthenticated
 
 
 class EmployeeAPIList(generics.ListCreateAPIView):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
-    permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated,)
 
 
 class EmployeeAPIRetrieve(generics.RetrieveAPIView):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
-    permission_classes = (IsOwner, IsEmployee, )
+    permission_classes = (IsOwner, IsEmployee,)
 
 
 class EmployeeAPIProfile(generics.ListAPIView):
@@ -26,4 +26,3 @@ class EmployeeAPIProfile(generics.ListAPIView):
         if user.is_authenticated:
             return Employee.objects.filter(user_ptr=user)
         return self.permission_denied(self.request)
-

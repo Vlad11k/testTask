@@ -1,7 +1,7 @@
 from django.db import models
 
-from employees.models import Employee
 from clients.models import Client
+from employees.models import Employee
 
 
 class Task(models.Model):

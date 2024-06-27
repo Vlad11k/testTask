@@ -9,5 +9,3 @@ class Client(User):
     class Meta:
         verbose_name = "Заказчик"
         verbose_name_plural = "Заказчики"
-
-

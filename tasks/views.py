@@ -10,7 +10,7 @@ from tasks.serializers import TaskListSerializer, TaskAcceptSerializer, TaskEndS
 
 class TaskAPIList(generics.ListCreateAPIView):
     serializer_class = TaskListSerializer
-    permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
         if self.request.user.is_staff:
@@ -29,7 +29,7 @@ class TaskAPIList(generics.ListCreateAPIView):
 class TaskAPIUpdate(generics.RetrieveUpdateAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskAcceptSerializer
-    permission_classes = (IsOwner, )
+    permission_classes = (IsOwner,)
 
 
 class TaskAPIEnd(generics.RetrieveUpdateAPIView):
