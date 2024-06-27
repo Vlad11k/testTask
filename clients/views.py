@@ -1,8 +1,7 @@
 from rest_framework import generics
-from rest_framework.permissions import IsAuthenticated
 
 from clients.models import Client
-from clients.permissions import IsOwner, IsEmployee
+from clients.permissions import IsEmployee
 from clients.serializers import ClientSerializer
 
 
@@ -22,7 +21,7 @@ class ClientAPIProfile(generics.ListAPIView):
     serializer_class = ClientSerializer
 
     def get_queryset(self):
-        client = self.request.user
-        if client.is_authenticated:
-            return Client.objects.filter(user_ptr=client)
+        user = self.request.user
+        if user.is_authenticated:
+            return Client.objects.filter(user_ptr=user)
         return self.permission_denied(self.request)

@@ -4,6 +4,9 @@ from clients.models import Client
 
 
 class ClientSerializer(serializers.ModelSerializer):
+    full_name = serializers.CharField(required=True)
+    email = serializers.EmailField(required=True)
+    phone = serializers.CharField(required=True)
 
     class Meta:
         model = Client
